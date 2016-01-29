@@ -1,0 +1,16 @@
+<div>
+  <h2>My Bookes</h2>
+  <ul class="books">
+    <li *ngFor="#book of books"
+      [class.selected]="book === selectedBook"
+      (click)="onSelect(book)">
+      <span class="badge">{{book.id}}</span> {{book.name}}
+    </li>
+  </ul>
+  <div *ngIf="selectedBook">
+    <h2>I selected {{selectedBook.name | uppercase}}, the price is {{(1 * selectedBook.price) | currency}}
+       <button (click)="gotoDetail()">Edit it</button>
+    </h2>
+  </div>
+</div>
+
